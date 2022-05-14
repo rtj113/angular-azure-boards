@@ -5,6 +5,14 @@
     <h3>{{boards.title}}</h3>
     <h3>{{boards.AssignedTo}}</h3>
     <h3>{{boards.State}}</h3> -->
-    <label for="title">Title:</label>
-    <input id="title" [(ngModel)]="boards.title" placeholder="title">
+    <!-- <label for="title">Title:</label>
+    <input id="title" [(ngModel)]="boards.title" placeholder="title"> -->
+    <ul>
+        <li *ngFor="let board of boards">
+            <button type="button">
+                <span class="badge">{{board.id}}</span>
+                <span class="name">{{board.title}}</span>
+            </button>
+        </li>
+    </ul>
     </div>

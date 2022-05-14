@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BOARDS } from 'src/app/mock-boards';
 import { Boards } from '../modules/boards';
 
 @Component({
@@ -10,13 +11,7 @@ export class AzureBoardsComponent implements OnInit {
 
   azure_board = 'My First Project';
 
-  boards: Boards = {
-    id: 1,
-    WorkItemType: 'Test 1',
-    title: 'Test 1',
-    AssignedTo: 'Mudvayne',
-    State: 'Paused'
-  }
+  boards = BOARDS;
 
   constructor() { }
 
