@@ -27,7 +27,8 @@ export class AzureBoardsComponent implements OnInit {
   }
 
   getBoards(): void {
-    this.boardService.getBoards();
+    this.boardService.getBoards()
+      .subscribe(boards => this.boards = boards);
   }
 
   onSelect(board: Boards): void {
