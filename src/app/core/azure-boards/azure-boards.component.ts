@@ -13,9 +13,16 @@ export class AzureBoardsComponent implements OnInit {
 
   boards = BOARDS;
 
+  selectedBoard?: Boards;
+  
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelect(board: Boards): void {
+    this.selectedBoard = board;
   }
 
 }

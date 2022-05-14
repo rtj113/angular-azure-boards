@@ -1,18 +1,25 @@
 <p>{{azure_board}}</p>
-<div>
-    <!-- <h1>{{boards.id}}</h1>
-    <h2>{{boards.WorkItemType}}</h2>
-    <h3>{{boards.title}}</h3>
-    <h3>{{boards.AssignedTo}}</h3>
-    <h3>{{boards.State}}</h3> -->
-    <!-- <label for="title">Title:</label>
-    <input id="title" [(ngModel)]="boards.title" placeholder="title"> -->
-    <ul>
-        <li *ngFor="let board of boards">
-            <button type="button">
-                <span class="badge">{{board.id}}</span>
-                <span class="name">{{board.title}}</span>
-            </button>
-        </li>
-    </ul>
-    </div>
+
+
+
+<ul class="boards">
+    <li *ngFor="let board of boards">
+        <button [class.selected]="board === selectedBoard" type="button" (click)="onSelect(board)">
+            <span class="badge">{{board.id}}</span>
+            <span class="name">{{board.title}}</span>
+        </button>
+    </li>
+</ul>
+
+<div *ngIf="selectedBoard">
+
+    <h1>{{selectedBoard.id}}</h1>
+    <!-- <h2>{{selectedBoard.WorkItemType}}</h2> -->
+    <h3>{{selectedBoard.title}}</h3>
+    <!-- <h3>{{selectedBoard.AssignedTo}}</h3>
+    <h3>{{selectedBoard.State}}</h3> -->
+
+    <label for="title">Title:</label>
+    <input id="title" [(ngModel)]="selectedBoard.title" placeholder="title">
+
+</div>
