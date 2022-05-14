@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BOARDS } from 'src/app/mock-boards';
+import { BoardService } from 'src/app/board.service';
 import { Boards } from '../modules/boards';
 
 @Component({
@@ -9,16 +9,25 @@ import { Boards } from '../modules/boards';
 })
 export class AzureBoardsComponent implements OnInit {
 
+  
+
   azure_board = 'My First Project';
 
-  boards = BOARDS;
+  boards: Boards[] = [];
 
   selectedBoard?: Boards;
   
 
-  constructor() { }
+  constructor(private boardService: BoardService) {
+    
+  }
 
   ngOnInit(): void {
+    this.getBoards();
+  }
+
+  getBoards(): void {
+    this.boardService.getBoards();
   }
 
   onSelect(board: Boards): void {

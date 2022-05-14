@@ -1,0 +1,12 @@
+<div *ngIf="board">
+
+    <h1>{{board.id}}</h1>
+    <!-- <h2>{{selectedBoard.WorkItemType}}</h2> -->
+    <h3>{{board.title}}</h3>
+    <!-- <h3>{{selectedBoard.AssignedTo}}</h3>
+    <h3>{{selectedBoard.State}}</h3> -->
+
+    <label for="title">Title:</label>
+    <input id="title" [(ngModel)]="board.title" placeholder="title">
+
+</div>

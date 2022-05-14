@@ -1,7 +1,5 @@
 <p>{{azure_board}}</p>
 
-
-
 <ul class="boards">
     <li *ngFor="let board of boards">
         <button [class.selected]="board === selectedBoard" type="button" (click)="onSelect(board)">
@@ -11,15 +9,4 @@
     </li>
 </ul>
 
-<div *ngIf="selectedBoard">
-
-    <h1>{{selectedBoard.id}}</h1>
-    <!-- <h2>{{selectedBoard.WorkItemType}}</h2> -->
-    <h3>{{selectedBoard.title}}</h3>
-    <!-- <h3>{{selectedBoard.AssignedTo}}</h3>
-    <h3>{{selectedBoard.State}}</h3> -->
-
-    <label for="title">Title:</label>
-    <input id="title" [(ngModel)]="selectedBoard.title" placeholder="title">
-
-</div>
+<app-board-detail [board]="selectedBoard"></app-board-detail>
