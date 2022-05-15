@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { AzureBoardsComponent } from './core/azure-boards/azure-boards.component';
 import { BoardDetailComponent } from './core/board-detail/board-detail.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { MessagesComponent } from './core/messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AzureBoardsComponent,
     BoardDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
