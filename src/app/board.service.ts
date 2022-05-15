@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Boards } from './core/modules/boards';
 import { BOARDS } from './mock-boards';
@@ -9,10 +10,17 @@ import { BOARDS } from './mock-boards';
 })
 export class BoardService {
 
-  constructor() { }
+  private boardsURL = 'api/boards';
+
+  constructor(private http: HttpClient) { }
 
   getBoards(): Observable<Boards[]> {
     const boards = of(BOARDS);
     return boards;
+  }
+
+  getBoard(id: number): Observable<Boards>{
+    const board = BOARDS.find(h => h.id ===id)!;
+    return of(board);
   }
 }

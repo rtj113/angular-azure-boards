@@ -8,19 +8,12 @@ import { Boards } from '../modules/boards';
   styleUrls: ['./azure-boards.component.css']
 })
 export class AzureBoardsComponent implements OnInit {
-
-  
-
   azure_board = 'My First Project';
 
   boards: Boards[] = [];
-
   selectedBoard?: Boards;
   
-
-  constructor(private boardService: BoardService) {
-    
-  }
+  constructor(private boardService: BoardService) { }
 
   ngOnInit(): void {
     this.getBoards();
@@ -31,8 +24,8 @@ export class AzureBoardsComponent implements OnInit {
       .subscribe(boards => this.boards = boards);
   }
 
-  onSelect(board: Boards): void {
-    this.selectedBoard = board;
-  }
+  // onSelect(board: Boards): void {
+  //   this.selectedBoard = board;
+  // }
 
 }

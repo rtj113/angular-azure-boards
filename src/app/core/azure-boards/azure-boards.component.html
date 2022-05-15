@@ -1,12 +1,8 @@
-<p>{{azure_board}}</p>
 
 <ul class="boards">
     <li *ngFor="let board of boards">
-        <button [class.selected]="board === selectedBoard" type="button" (click)="onSelect(board)">
-            <span class="badge">{{board.id}}</span>
-            <span class="name">{{board.title}}</span>
-        </button>
+        <a routerLink="/detail/{{board.id}}">
+            <span class="badge">{{board.id}}</span> {{board.title}}
+        </a>
     </li>
 </ul>
-
-<app-board-detail [board]="selectedBoard"></app-board-detail>
