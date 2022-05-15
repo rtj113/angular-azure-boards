@@ -17,10 +17,10 @@ export class BoardService {
 
   getBoards(): Observable<Boards[]> {
     // const boards = of(BOARDS);
-    this.messageService.add('HeroService: fetched heroes');
+    this.messageService.add('BoardService: fetched boards');
     return this.http.get<Boards[]>(this.boardsURL)
       .pipe(
-        catchError(this.handleError<Boards[]>('getHeroes', []))
+        catchError(this.handleError<Boards[]>('getBoards', []))
       )
   }
 
@@ -28,8 +28,8 @@ export class BoardService {
     const url = `${this.boardsURL}/${id}`;
 
     return this.http.get<Boards>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Boards>(`getHero id=${id}`))
+      tap(_ => this.log(`fetched board id=${id}`)),
+      catchError(this.handleError<Boards>(`getBoard id=${id}`))
     );
   }
 
@@ -43,7 +43,7 @@ export class BoardService {
     };
   }
 
-   /** Log a HeroService message with the MessageService */
+   /** Log a BoardService message with the MessageService */
    private log(message: string) {
     this.messageService.add(`BoardService: ${message}`);
   }
