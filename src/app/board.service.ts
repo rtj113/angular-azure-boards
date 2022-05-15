@@ -15,8 +15,8 @@ export class BoardService {
   constructor(private http: HttpClient) { }
 
   getBoards(): Observable<Boards[]> {
-    const boards = of(BOARDS);
-    return boards;
+    // const boards = of(BOARDS);
+    return this.http.get<Boards[]>(this.boardsURL);
   }
 
   getBoard(id: number): Observable<Boards>{
