@@ -4,5 +4,14 @@
         <a routerLink="/detail/{{board.id}}">
             <span class="badge">{{board.id}}</span> {{board.title}}
         </a>
+        <button type="button" class="delete" title="delete board" (click)="delete(board)">X</button>
     </li>
 </ul>
+<div>
+    <label for="new-board">Board name: </label>
+    <input id="new-board" #boardName />
+
+    <button type="button" class="add-button" (click)="add(boardName.value); boardName.value=''">
+        Add board
+    </button>
+</div>

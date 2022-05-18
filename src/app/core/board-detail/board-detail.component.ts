@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -11,8 +11,7 @@ import { Boards } from '../modules/boards';
   styleUrls: ['./board-detail.component.css']
 })
 export class BoardDetailComponent implements OnInit {
-
-  @Input() board?: Boards;
+  board: Boards | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +24,7 @@ export class BoardDetailComponent implements OnInit {
   }
 
   getBoard(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.boardService.getBoard(id)
     .subscribe(board => this.board = board);
   }
@@ -34,4 +33,10 @@ export class BoardDetailComponent implements OnInit {
     this.location.back();
   }
 
+  // save(): void {
+  //   if (this.board) {
+  //     this.boardService.updateBoard(this.board)
+  //     .subscribe(() => this.goBack());
+  //   }
+  // }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { BoardService } from 'src/app/board.service';
 import { MessageService } from 'src/app/message.service';
@@ -31,4 +32,19 @@ export class AzureBoardsComponent implements OnInit {
     this.messageService.add(`AzureBoardsComponent: Selected board id=${board.id}`)
   }
 
+  add(title: string): void {
+    title = title.trim();
+    if(!title){ return; }
+    this.boardService.addBoard({ title } as Boards)
+      .subscribe(board => {
+        this.boards.push(board);
+      })
+  }
+
+  
+
+  delete(board: Boards): void {
+    this.boards = this.boards.filter(h => h !== board);
+    this.boardService.deleteBoard(board.id).subscribe();
+  }
 }
